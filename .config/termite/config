@@ -1,0 +1,122 @@
+#[options]
+#font = DejaVu Sans Mono Nerd Font 13
+#font = DejaVu Sans Mono Nerd Font Complete 13
+#font = RobotoMono Nerd Font 13
+#«»‹›“”‘’〖〗【】「」『』〈〉《》〔〕 ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ αβγδεζηθικλμνξοπρςτυφχψω ¤$¢€₠£¥ ©®™²³ §¶†‡※ •◦‣✓●■◆○□◇★☆♠♣♥♦♤♧♡♢ ᴁᴂᴈ ♩♪♫♬♭♮♯ “” ‘’ ¿¡ ¶§ª - ‐ ‑ ‒ – — ― … ° ⌈⌉ ⌊⌋ ∏∑∫ ×÷ ⊕⊖⊗⊘⊙⊚⊛∙∘ ′″‴ ∼∂√ ≔× ⁱ⁰¹²³ ₀₁₂ π∞± ∎ ∀¬∧∨∃⊦∵∴∅∈∉⊂⊃⊆⊇⊄⋂⋃ ≠≤≥≮≯≫≪≈≡ ℕℤℚℝℂ ←→↑↓ ↔ ↖↗↙↘ ⇐⇒⇑⇓ ⇔⇗ ⇦⇨⇧⇩ ↞↠↟↡ ↺↻ ☞☜☝☟ ⌘⌥‸ ⇧⌤↑↓→←⇞⇟↖↘ ⌫ ⌦ ⎋⏏↶↷◀▶▲▼ ◁▷△▽ ⇄ ⇤ ⇥ ↹↵↩⏎ ⌧⌨␣ ⌶ ⎗⎘⎙⎚⌚⌛ ✂✄✉✍ ①②③④⑤⑥⑦⑧⑨⓪ 卐卍 ✝✚✡☥⎈☭☪☮☺☹☯☰☱☲☳☴☵☶☷☠☢☣☤♲♳⌬♨♿☉☼☾☽♀♂♔♕♖♗♘♙♚♛♜♝♞♟❦　、。！，：林花謝了春 紅，太匆匆。無奈朝來寒雨，晚來風。胭脂淚，留人醉，幾時重，自是人生長恨， 水長東。
+# vim:ft=dosini
+#
+# Termite configuration
+#
+
+[options]
+resize_grip = false
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+visible_bell = true
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+scrollback_lines = 10000
+search_wrap = true
+
+;font = Monospace 13
+;font = xos4 Terminus-monospace 12px
+;font = Powerline Consolas 13
+;font = Courier Prime Code 12
+;font = Hack 12
+;font = Inconsolata Bold 13
+;font = InconsolataForPowerline Nerd Font 14
+;font = envypn, regular, 10
+;font = Termsynu, 9
+;font = RobotoMono Nerd Font Mono 12
+;font = Consolas for Powerline 12
+;font = Source Code Pro for Powerline 12
+;font = Droid Sans Mono for Powerline 12
+;font = Fira Mono 12
+;font = Inconsolata for Powerline 12
+;font = Iosevka Term 14
+font = RobotoMono Nerd Font 12
+
+#[colors]
+
+## special
+#foreground      = #c5c8c6
+#foreground_bold = #c5c8c6
+#cursor          = #c5c8c6
+##background      = #1d1f21
+##background      = #252525
+#background      = #2f2f2f
+
+## black
+#color0  = #1d1f21
+#color8  = #969896
+
+## red
+#color1  = #e06c75
+#color9  = #be5046
+
+## green
+#color2  = #98c379
+#color10 = #98c379
+
+## yellow
+#color3  = #98c379
+#color11 = #d19a66
+
+## blue
+#color4  = #61afef
+#color12 = #61afef
+
+## magenta
+#color5  = #c678dd
+#color13 = #c678dd
+
+## cyan
+#color6  = #56b6c2
+#color14 = #56b6c2
+
+## white
+#color7  = #abb2bf
+#color15 = #5c6370
+
+[colors]
+# hard contrast: background = #1d2021
+background = #282828
+# soft contrast: background = #32302f
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
+
+# dark0 + gray
+color0 = #282828
+color8 = #928374
+
+# neutral_red + bright_red
+color1 = #cc241d
+color9 = #fb4934
+
+# neutral_green + bright_green
+color2 = #98971a
+color10 = #b8bb26
+
+# neutral_yellow + bright_yellow
+color3 = #d79921
+color11 = #fabd2f
+
+# neutral_blue + bright_blue
+color4 = #458588
+color12 = #83a598
+
+# neutral_purple + bright_purple
+color5 = #b16286
+color13 = #d3869b
+
+# neutral_aqua + faded_aqua
+color6 = #689d6a
+color14 = #8ec07c
+
+# light4 + light1
+color7 = #a89984
+color15 = #ebdbb2
