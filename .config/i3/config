@@ -1,0 +1,479 @@
+#     		'####::'#######::'##:::::'##:'##::::'##:
+#     		. ##::'##.... ##: ##:'##: ##: ###::'###:
+#     		: ##::..::::: ##: ##: ##: ##: ####'####:
+#     		: ##:::'#######:: ##: ##: ##: ## ### ##:
+#     		: ##:::...... ##: ##: ##: ##: ##. #: ##:
+#    		: ##::'##:::: ##: ##: ##: ##: ##:.:: ##:
+#     		'####:. #######::. ###. ###:: ##:::: ##:
+#     		....:::.......::::...::...:::..:::::..::
+
+set $mod Mod4
+#------------------------------------------------------------------------------#
+
+#               Default font for window borders
+
+#font pango:Avenir LT Std 13
+font pango:RobotoMono Nerd Font 11
+#------------------------------------------------------------------------------#
+
+#           Activate mouse mode to move floating windows
+
+floating_modifier $mod
+#------------------------------------------------------------------------------#
+
+
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::#
+#                       Run shell termite (+ Tmux if I ever learn it)
+
+bindsym $mod+Return workspace $WS1; exec termite #-e tmux
+#------------------------------------------------------------------------------#
+
+#                       Close focused windows
+
+bindsym $mod+Shift+q kill
+#------------------------------------------------------------------------------#
+
+#                       Run dmenu + rofi
+
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='synapse'
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -show drun'
+
+
+#:::::::::::::::::::::::: i3 default config window ::::::::::::::::::::::::::::#
+
+#                       Change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+ntilde focus right
+
+#           Alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+#                       Move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+ntilde move right
+
+#       Alternatively, you can use the cursor keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+#       Split in horizontal and vertical orientation
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+#       Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+#       Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+#       Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+#       Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+#       Focus the parent container
+bindsym $mod+a focus parent
+
+
+#::::::::::::::::::::::: Customize workspace name :::::::::::::::::::::::::::::#
+
+set $WS1   1:
+set $WS2   2:
+set $WS3   3:
+set $WS4   4:
+set $WS5   5:
+set $WS6   6:
+set $WS7   7:
+set $WS8   8:
+set $WS9   9:
+set $WS0   10:
+
+#       Switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS0
+
+#       Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS0
+
+#::::::::::::::::::::::::: App assigned in workspace ::::::::::::::::::::::::::# 
+
+assign [class="chrome"]             $ws2
+assign [class="vimb"]               $ws2
+assign [class="Pale moon"]          $ws2
+assign [class="Thunar"]             $ws3
+assign [class="Mousepad"]           $ws4
+assign [class="Vlc"]                $ws5
+assign [class="mplayer"]            $ws5
+assign [class="Soundconverter"]     $ws5
+assign [class="Popcorn-Time"]       $ws5
+assign [class="(?i)popcorntime"]    $ws5
+assign [class="Termite"]            $ws1
+#assign [class="urxvt"]             $ws1
+#assign [class="Franz"]             $ws6
+assign [class="(?i)epdfview"]      	$ws7
+assign [class="Gimp"]              	$ws7
+assign [class="Inkscape"]           $ws7
+#assign [class="Gnumeric"]          $ws7
+assign [class="libreoffice"]        $ws7
+assign [class="Transmission"]       $ws8
+assign [class="JDownloader"]        $ws8
+assign [class="Lxappearance"]       $ws9
+assign [class="Pavucontrol"]        $ws9
+assign [class="imagewriter"]       	$ws9
+assign [class="(?i)virtualbox"]    	$ws9
+assign [class="minecraft"]         	$ws0
+
+
+#:::::::::::::::::::::::::::: Config default ::::::::::::::::::::::::::::::::::#
+
+# reload the configuration file
+bindsym $mod+Ctrl+r reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+# These bindings trigger as soon as you enter the resize mode
+
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+    bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym ntilde resize grow width 10 px or 10 ppt
+
+# same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+# back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+#:::::::::::::::::::::::::::::: Style border ::::::::::::::::::::::::::::::::::#
+
+# <normal|1pixel|pixel xx|none|pixel> #
+new_window none
+new_float none
+
+#       Disable border window
+#hide_edge_borders none
+
+
+#:::::::::::::::::;: Assigned window mode floating ::::::::::::::::::::::::::::#
+
+#|||||||||||||| Floating windows with borders |||||||||||||||||#
+for_window [class="Galculator"] floating enable border normal
+for_window [class="Geany"] floating enable border normal
+for_window [class="GParted"] floating enable border normal
+for_window [class="JDownloader"] floating enable border normal
+for_window [class="Lightdm-gtk-greeter-settings"] floating enable border normal
+for_window [class="Lxappearance"] floating enable border normal
+for_window [class="Mousepad"] floating enable border normal
+for_window [class="Nitrogen"] floating enable border normal
+for_window [class="Pamac-update"] floating enable border normal
+for_window [class="Pavucontrol"] floating enable border normal
+for_window [class="Transmission-gtk"] floating enable border normal
+#for_window [class="(?i)virtualbox"] floating enable border normal
+
+#||||||||||||| Floating windows without borders ||||||||||||||||||#
+for_window [class="Firefox"] enable border pixel 1
+for_window [class="Galculator"] floating enable border pixel 4
+for_window [class="soundconverter"] floating enable border pixel 1
+for_window [class="Sonata"] floating enable border pixel 4
+for_window [class="Terminator"] floating enable border pixel 1
+for_window [class="Termite"] floating enable
+#for_window [class="URxvt"] floating enable border pixel 4
+for_window [class="Vlc"] floating enable border pixel 1
+for_window [class="xarchiver"] floating enable border pixel 1
+for_window [class="XTerm"] floating enable border pixel 4
+for_window [class="imagewriter"] floating enable border pixel 4
+for_window [class="synapse"] floating disable border pixel 1
+
+
+#:::::::::::::::::::::::: Position window top right :::::::::::::::::::::::::::#
+
+bindsym $mod+Shift+p floating enable; resize set 560 px 340 px; sticky enable; move window to position 880 px 25 px
+bindsym $mod+Shift+m floating enable; resize set 1280 px 500 px; sticky enable; move window to position 10 px 390 px
+
+#           Minimizar ventanas
+# Mover ventana al scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# # Mostrar scratchpad
+bindsym $mod+minus scratchpad show
+
+
+#:::::::::::::::::::::::::::::::: i3 Panel ::::::::::::::::::::::::::::::::::::#
+
+bar {
+    status_command              i3status #i3blocks -c ~/.config/i3/i3blocks.conf
+        position                    top
+        mode                        dock
+        strip_workspace_numbers     yes
+        height                      18
+        #font                        pango: xos4 Terminess Powerline, icons 9
+        font                        pango: RobotoMono Nerd Font 10
+       #separator_symbol            "::"
+
+#   Color panel
+        colors {
+            background #253941
+                statusline #e7dfd9
+                separator  #081419
+
+#   Indicadores panel
+#                        border  backgr   text
+                focused_workspace   #08202a #08202a #e7dfd9
+                inactive_workspace  #a5876d #a5876d #000000
+                urgent_workspace    #1b1d1f #c6a78a #000000
+        }
+}
+
+#::::::::::::::::::::::::::::: Frame window :::::::::::::::::::::::::::::::::::#
+
+# Class                      border  backgr   text  indicator child_border
+client.focused		 		#1d3037 #1d3037 #ffffff  #ffffff   #1d3037
+client.focused_inactive 	#1d2121 #1d2121 #a1a1a1  #484e50   #1d2121
+client.urgent   			#4a4b4c #4a4b4c #fdfdfd  #fbfbfb   #4a4c4b
+
+client.background           #111111
+
+
+#:::::::::::::::::::::::: Settings for gaps window ::::::::::::::::::::::::::::#
+
+# Set inner/outer gaps
+set $default_gaps_inner 8
+set $default_gaps_outer -4
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+smart_gaps on
+smart_borders on
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying
+# outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or
+# 0 (remove gaps for current workspace). If you also press Shift with these
+# keys, the change will be global for all workspaces.
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+    bindsym o       mode "$mode_gaps_outer"
+        bindsym i       mode "$mode_gaps_inner"
+        bindsym Return  mode "default"
+        bindsym Escape  mode "default"
+}
+
+mode "$mode_gaps_inner" {
+    bindsym plus    gaps inner current plus 3
+        bindsym minus   gaps inner current minus 3
+        bindsym 0       gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 3
+        bindsym Shift+minus gaps inner all minus 3
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+    bindsym plus    gaps outer current plus 3
+        bindsym minus   gaps outer current minus 3
+        bindsym 0       gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 3
+        bindsym Shift+minus gaps outer all minus 3
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+#::::::::::::::::::::::::::::::: Out system :::::::::::::::::::::::::::::::::::#
+
+set $Locker i3lock && sleep 1
+set $mode_system System:   L :  | S :  | P :  | R :  | E :   
+
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3lock-fancy, mode "default"
+        bindsym s exec --no-startup-id $Lock systemctl suspend, mode "default
+        bindsym p exec --no-startup-id systemctl poweroff -i, mode "default"
+        bindsym r exec --no-startup-id systemctl reboot, mode "default"
+        bindsym e exec --no-startup-id i3-msg exit, mode "default"
+
+#   back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+x mode "$mode_system"
+
+
+#:::::::::::::::::::::::::::: Volume control ::::::::::::::::::::::::::::::::::#
+
+#       Alsamixer control
+
+# Increase sound volume
+#bindsym XF86AudioRaiseVolume exec "amixer sset Master '3%+'"
+# Decrease sound volume
+#bindsym XF86AudioLowerVolume exec "amixer sset Master '3%-'"
+# Mute sound
+#bindsym XF86AudioMute exec "amixer set Master toggle"
+
+# Increase sound volume key plus
+#bindsym plus exec "amixer sset Master '3%'"
+# Decrease sound volume key minus
+#bindsym minus exec "amixer sset Master '3%-'"
+# Mute sound
+#bindsym F10 exec "amixer set Master toggle"
+#------------------------------------------------------------------------------#
+
+#       Pulseaudio control:
+# Increase sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% 
+# Decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% 
+# Mute sound
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
+
+# Increase sound volume key plus
+bindsym Ctrl+plus exec --no-startup-id pactl set-sink-volume 1 +5%
+# Decrease sound volume key minus
+bindsym Ctrl+minus exec --no-startup-id pactl set-sink-volume 1 -5%
+# Mute sound
+bindsym Ctrl+0 exec --no-startup-id pactl set-sink-mute 1 toggle
+#:::::::::::::::::::::::: Multimedia control ::::::::::::::::::::::::::::::::::#
+
+#       Media player control
+bindsym XF86AudioPlay exec "mpc toggle"
+bindsym XF86AudioStop exec "mpc stop"
+bindsym XF86AudioPrev exec "mpc prev"
+bindsym XF86AudioNext exec "mpc next"
+
+
+#       Media player control key
+bindsym $mod+Ctrl+p exec "mpc toggle"
+bindsym $mod+Ctrl+s exec "mpc stop"
+bindsym $mod+Ctrl+Left exec "mpc prev"
+bindsym $mod+Ctrl+Right exec "mpc next"
+#::::::::::::::::::::::::::::::: Launcher APP :::::::::::::::::::::::::::::::::#
+
+#       Call web browser
+bindsym $mod+F1 workspace $WS2; exec google-chrome-stable
+bindsym $mod+Shift+F1 workspace $WS2; exec firefox
+
+#       Call file manager
+bindsym $mod+F2 workspace $WS4; exec thunar
+
+#       Call text edit
+bindsym $mod+F3 workspace $WS3; exec nvim
+bindsym $mod+Shift+F3 workspace $WS3; exec mousepad
+
+#       Call multimedia
+bindsym $mod+F4 workspace $WS5; exec sonata
+
+#       Call chat
+bindsym $mod+F5 workspace $WS6; exec discord
+
+#       Call image edit
+bindsym Shift+F4 workspace $WS7; exec inkscape
+bindsym $mod+Shift+F8 workspace $WS7; exec gimp
+
+#       Call tools settings
+bindsym $mod+Shift+F5 workspace $WS9; exec gksudo imagewriter
+
+bindsym $mod+F6 workspace $WS9; exec gksudo gparted
+bindsym $mod+Shift+F6 workspace $WS9; exec gksudo lightdm-gtk-greeter-settings
+bindsym Shift+F6 workspace $WS9; exec gksudo grub-customizer
+
+bindsym $mod+F7 workspace $WS9; exec lxappearance
+bindsym $mod+F8 workspace $WS9; exec pavucontrol
+
+#   Call tools free workspace
+bindsym $mod+n exec nitrogen
+bindsym $mod+p exec xfce4-screenshooter
+
+
+#:::::::::::::::::::::: Custom keybindings :::::::::::::::::::::::::::::#
+
+bindsym $mod+C exec "xinput --disable 15 && xinput --disable 14"
+bindsym $mod+Shift+C exec "xinput --enable 15 && xinput --enable 14"
+
+#:::::::::::::::::::::: Autostart app and daemons :::::::::::::::::::::::::::::#
+
+#       Daemon
+#exec --no-startup-id thunar --daemon
+#       Background
+exec --no-startup-id nitrogen --restore
+#       Dunst
+#exec --no-startup-id dunst --daemon
+#       Pulseaudio
+#exec --no-startup-id start-pulseaudio-x11
+#       Composite manager
+#exec --no-startup-id compton -cCGb      # xcompmgr -c -f -n
+#       Number unlocker
+#exec --no-startup-id numlockx on
+#       Update notifier Archlinux
+#exec --no-startup-id aarchup            # exec octopi-notifier
+#       Music server MPD
+#exec --no-startup-id mpd
+#       Clipboard
+#exec --no-startup-id parcellite
+#       Conky
+#exec conky -d; sleep 1 && transset-df .5 -n Conky &
+#       Screensaver
+# exec --no-startup-id xscreensaver -nospalsh
+#       Oneko
+# exec oneko -rv -tofocus
+
+# 	Xresources, xmodmap, start urxvt daemon
+exec --no-startup-id "/usr/bin/xmodmap /home/<user>/.keymap"
+exec --no-startup-id "/usr/bin/urxvtd -q -f -o"
+exec --no-startup-id "/usr/bin/xrdb -merge /home/<user>/.Xresources"
+
+exec "xrandr --output eDP-1 --auto --pos 0x300 --output HDMI-1 --primary --auto --pos 1368x0"
