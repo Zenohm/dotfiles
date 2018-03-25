@@ -1,0 +1,13 @@
+[credential]
+	helper = /usr/lib/git-core/git-credential-gnome-keyring
+[user]
+	name = Zenohm
+	email = Zenohm@users.noreply.github.com
+[github]
+	user = Zenohm
+[mergetool]
+	path = nvim
+[mergetool "vimdiff"]
+	path = nvim
+[core]
+	autocrlf = input
