@@ -1,0 +1,62 @@
+# -*- mode: sh -*-
+set -a
+
+has() {
+    type "$@" >/dev/null 2>&1
+}
+
+PAGER="less"
+
+# less status line
+LESS='-R -f -X -i -P ?f%f:(stdin). ?lb%lb?L/%L.. [?eEOF:?pb%pb\%..]'
+LESSCHARSET='utf-8'
+
+BROWSER=firefox
+TERMINAL=termite
+FILEBROWSER=thunar
+
+# default
+GTK_THEME=${GTK_THEME:-adwaita}
+SXHKD_SHELL=sh
+MPDCRON_DIR="$HOME/.config/mpd"
+_JAVA_AWT_WM_NONREPARENTING=1
+LANG="en_US.UTF-8"
+TERMCMD="$TERMINAL"
+
+#has emacs && EDITOR='emacsclient' || EDITOR=vim
+EDITOR=nvim
+VISUAL="$EDITOR"
+GIT_EDITOR="$EDITOR"
+SVN_EDITOR="$EDITOR"
+
+if has npm; then
+    if [ -d "$HOME/.npm-packages" ]; then
+        # assume, faster startup time
+        NODE_PATH="$HOME/.npm-packages/lib/node_modules"
+        PATH="$PATH:$HOME/.npm-packages/bin"
+    else
+        NODE_PATH="$(npm root -g)"
+        PATH="$PATH:$(npm bin -g)"
+    fi
+fi
+
+GEM_HOME="$HOME/.gem"
+BUNDLE_PATH="$HOME/.gem"
+GOPATH="$HOME/.go"
+
+WINEPREFIX=$HOME/.config/wine/
+
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/
+
+path_add() {
+    PATH="$PATH:$HOME/$@"
+}
+
+path_add ~/.local/bin
+path_add .gem/bin
+path_add .go/bin
+path_add .wm/scripts/interact
+path_add .wm/scripts/visual
+
+
+set +a

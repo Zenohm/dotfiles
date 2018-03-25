@@ -1,0 +1,87 @@
+#!/bin/bash
+#alias NICKNAME='COMMAND'
+
+
+# color support
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# modified commands
+alias df='df -h'
+alias du='du -h'
+alias free='free -h'
+alias less='less -i'
+alias mkdir='mkdir -pv'
+alias ping='ping -c 3'
+alias feh='feh --scale-down --auto-zoom'
+
+# privileged access
+if [ $UID -ne 0 ]; then
+    alias sudo='sudo ' # passes aliases over to root when using sudo
+fi
+
+# safety features
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -I'
+alias ln='ln -i'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+
+# ls
+#alias ls='ls -hF --color=auto --group-directories-first'
+#alias ls='exa'
+alias la='ls -A'
+alias ll='ls -lh'
+alias l='ls -alh'
+alias lr='ls -R'
+
+# alias zshconfig="mate ~/.zshrc"
+alias notifications="/etc/X11/xinit/xinitrc.d/50-systemd-user.sh"
+
+# Make sure only NeoVim is used
+alias vim="nvim"
+
+# Get the weather
+alias weather="curl wttr.in"
+
+# Shortcut for the RSS reader
+alias rss="newsbeuter -u $1"
+
+# Open a file using the default application.
+alias open="xdg-open"
+alias o=open
+
+# Don't use the builtin time command
+# disable -r time
+# alias time='/usr/bin/time'
+
+# Add syntax highlighting to less
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
+
+# Easily read to and write from the clipboard.
+#alias pbcopy='xclip -selection clipboard'
+#alias pbpaste='xclip -selection clipboard -o'
+
+# Pacage manager shortcuts.
+alias p='trizen'
+alias pu='trizen -Syu'
+alias pa='trizen -Sy'
+alias pq='trizen -Q'
+
+# Easily exit.
+alias e='exit'
+alias E='exit'
+
+# Easily connect to IPFW Oracle SQL database to run commands.
+alias cs364='rlwrap -if ~/Documents/Programs/SQL/Oracle/sqlplus.dict -pgreen sqlplus c##user36418@\"topaz.ipfw.edu:1521/orcl\"'
+
+# Easily handle dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME'

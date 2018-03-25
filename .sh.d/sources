@@ -1,0 +1,8 @@
+# -*- mode: sh -*-
+
+#source /usr/bin/virtualenvwrapper.sh
+
+# A smarter directory jumper
+source /etc/profile.d/autojump.sh
+
+source /usr/share/undistract-me/long-running.bash
