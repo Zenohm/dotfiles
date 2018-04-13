@@ -1,0 +1,23 @@
+rofi.font: Avenir LT Std 10
+rofi.theme: gruvbox-dark
+rofi.combi-modi:    window,drun,ssh
+rofi.modi: drun,fb:~/.config/rofi/scripts/file-browser,power:~/.config/rofi/scripts/power
+rofi.terminal: rofi-sensible-terminal
+! Do a more fuzzy matching
+rofi.fuzzy:                          true
+! Use glob matching
+rofi.glob:                           false
+! Use regex matching
+rofi.regex:                          false
+! Tokenize input string
+rofi.tokenize: true
+! Separator style (none, dash, solid)
+rofi.separator-style:                dash
+! Hide scroll-bar
+rofi.hide-scrollbar:                 false
+! Fullscreen
+rofi.fullscreen:                     false
+! Fake transparency
+rofi.fake-transparency: false
+! Enable auto select mode
+rofi.auto-select: false

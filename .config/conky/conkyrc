@@ -39,5 +39,6 @@ conky.config = {
 
 conky.text = [[
 ${execpi 600 gcalcli --conky agenda}
+${execpi 600 curl -s wttr.in/46815 | sed -n '3,7{s/\d27\[[0-9;]*m//g;s/^..//;s/ *$//;p}'}
 ]]
 
