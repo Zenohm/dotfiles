@@ -3,6 +3,7 @@ compton -b &
 conky &
 dunst &
 unclutter &
+lxsession &
 
 # Fuck Pulseaudio. Seriously.
 restore_alsa() {
