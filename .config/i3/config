@@ -46,16 +46,16 @@ client.urgent 			$FOCUS   $FOCUS   $FOCUS   $FOCUS
 client.background 		$UNFOCUS
 
 # Make the workspace numbers Roman numerals for style points.
-set $ws1 I
-set $ws2 II
-set $ws3 III
-set $ws4 IV
-set $ws5 V
-set $ws6 VI
-set $ws7 VII
-set $ws8 VIII
-set $ws9 IX
-set $ws10 X
+set $ws1    1:I
+set $ws2    2:II
+set $ws3    3:III
+set $ws4    4:IV
+set $ws5    5:V
+set $ws6    6:VI
+set $ws7    7:VII
+set $ws8    8:VIII
+set $ws9    9:IX
+set $ws10  10:X
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -78,7 +78,7 @@ bindsym $mod+Shift+Return exec termite
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-set $runner "rofi -show drun"
+set $runner "rofi -show"
 bindsym $mod+d exec $runner
 bindsym Menu exec $runner
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -178,8 +178,8 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Handle brightness keys
-bindsym XF86MonBrightnessUp exec brightnessctl s +5%
-bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 # Handle volume keys
 bindsym XF86AudioRaiseVolume exec "sh ~/.config/i3/scripts/volume up"
 bindsym XF86AudioLowerVolume exec "sh ~/.config/i3/scripts/volume down"
@@ -194,8 +194,11 @@ bindsym XF86WebCam exec "mplayer tv:// -tv driver=v4l2:width=640:height=480:devi
 #bindsym XF86AudioMute exec "amixer set Speaker\ Channel toggle"
 
 # Take screenshot
-bindsym Print exec "scrot -e 'mv $f ~/Pictures/Screenshots/'"
-bindsym Ctrl+Print exec "scrot -s -e 'mv $f ~/Pictures/Screenshots/'"
+#bindsym Print exec "scrot -e 'mv $f ~/Pictures/Screenshots/'"
+#bindsym Ctrl+Print exec "scrot -s -e 'mv $f ~/Pictures/Screenshots/'"
+bindsym Print exec "maim $HOME/Pictures/Screenshots/$(date +%F_%H_%M_%S_%N).png"
+bindsym Ctrl+Print exec "maim -i $(xdotool getactivewindow) $HOME/Pictures/Screenshots/$(date +%F_%H_%M_%S_%N).png"
+bindsym Ctrl+Shift+Print exec "maim -s $HOME/Pictures/Screenshots/$(date +%F_%H_%M_%S_%N).png"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -244,6 +247,7 @@ set $purple #b16286
 set $aqua #689d68
 set $gray #a89984
 set $darkgray #1d2021
+set $white #ffffff
 
 # blue gruvbox
 # class                 border|backgr|text|indicator|child_border
@@ -281,8 +285,9 @@ bar {
 }
 
 for_window [class=".*"] split toggle
-for_window [class="file-roller" ] floating enable
-for_window [class="xterm"       ] floating enable
+for_window [class="File-roller" ] floating enable
+for_window [class="XTerm"       ] floating enable
+for_window [class="Termite"     ] floating enable
 for_window [class="pavucontrol" ] floating enable
 
 new_window 1pixel
