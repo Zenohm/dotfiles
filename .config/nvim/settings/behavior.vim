@@ -44,7 +44,8 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
-" Uncomment the following to have Vim jump to the last position when reopening a file
+" ================ Additional Behavior ==============
+" Jump to the last position when reopening a file
 if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
                 \| exe "normal! g'\"" | endif

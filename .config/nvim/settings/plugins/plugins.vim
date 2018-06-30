@@ -1,25 +1,6 @@
-" Set Neobundle runtime path
-if has('vim_starting')
-    " Required:
-    set nocompatible
-    set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim " path to dein.vim
-endif
-
-" Required:
-call dein#begin(expand('~/.local/share/dein')) " plugins' root path
-
-" Let NeoBundle manage NeoBundle
-" Required:
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build': { 'linux': 'make'}})
-
-
-" Add or remove your Bundles here:
-" NeoBundle 'Shougo/neosnippet.vim'
-" NeoBundle 'Shougo/neosnippet-snippets'
-" lazy load on insert mode
+" Add or remove your plugins  here:
 call dein#add('Shougo/deoplete.nvim')           " Asynchronous code completion engine
-if !has('nvim')
+if has('nvim')
   call dein#add('roxma/nvim-yarp')
   call dein#add('roxma/vim-hug-neovim-rpc')
 endif
@@ -67,6 +48,3 @@ call dein#add('haya14busa/incsearch.vim')       " Improved incsearch.
 "call dein#add('airblade/vim-rooter')
 "call dein#add('floobits/floobits-neovim',
 "            \{'on_cmd': ['FlooShareDirPublic', 'FlooShareDirPrivate', 'FlooJoinWorkspace', 'FlooUnPause']})
-
-" Required:
-call dein#end()
