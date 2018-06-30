@@ -1,6 +1,6 @@
-source settings/plugins/pre.vim
-source settings/plugins/styling.vim
-source settings/plugins/plugins.vim
-source settings/plugins/mapping.vim
-source settings/plugins/behavior.vim
-source settings/plugins/post.vim
+runtime settings/plugins/pre.vim
+runtime settings/plugins/styling.vim
+runtime settings/plugins/plugins.vim
+runtime settings/plugins/mapping.vim
+runtime settings/plugins/behavior.vim
+runtime settings/plugins/post.vim
