@@ -63,6 +63,7 @@ fi
 #mpdcron &
 numlockx &
 dunst &
+lxsession &
 #urxvtd -q -f -o
 #wmname LG3D &
 #xsetroot -cursor_name left_ptr &
@@ -77,7 +78,7 @@ dunst &
 
 
 
-session=${1:-i3}
+session=${1:-kde}
 
 case $session in
     awesome       ) exec awesome;;
