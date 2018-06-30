@@ -52,7 +52,7 @@ path_add() {
     PATH="$PATH:$HOME/$@"
 }
 
-path_add ~/.local/bin
+path_add .local/bin
 path_add .gem/bin
 path_add .go/bin
 path_add .wm/scripts/interact
