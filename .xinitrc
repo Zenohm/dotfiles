@@ -14,4 +14,5 @@ restore_alsa() {
 }
 restore_alsa &
 
-exec i3
+# exec i3
+exec gnome-session
